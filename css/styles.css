@@ -1,0 +1,105 @@
+/* Basic Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e; /* Dark background color */
+    color: #e0e0e0; /* Light grey text for contrast */
+    text-align: center; /* Center-align text by default */
+}
+
+.header {
+    background-color: #002b36; /* Darker cobalt blue */
+    color: #ffffff; /* White text */
+    padding: 20px;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.topnav {
+    background-color: #282828; /* Very dark grey */
+    overflow: hidden;
+    padding: 10px 0;
+}
+
+.topnav a {
+    color: #e0e0e0; /* Light grey text */
+    text-decoration: none;
+    padding: 14px 20px;
+    display: inline-block;
+}
+
+.topnav a:hover {
+    background-color: #002b36; /* Darker cobalt blue */
+    color: #ff6f61; /* Coral highlight */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background-color: #2a2a2a; /* Dark grey background for the card */
+    border: 1px solid #404040; /* Slightly lighter grey border */
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Darker shadow for more depth */
+}
+
+.card-link {
+    text-decoration: none; /* Remove underline from the link */
+    color: inherit; /* Use the text color defined for the card */
+}
+
+.card-link:hover {
+    opacity: 0.8; /* Slightly reduce opacity on hover */
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    /* Optionally add some box-shadow for effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.footer {
+    background-color: #282828; /* Very dark grey */
+    color: #e0e0e0; /* Light grey text */
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+        width: 100%;
+        padding: 0;
+    }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+    .topnav a {
+        float: none;
+        width: 100%;
+    }
+}
