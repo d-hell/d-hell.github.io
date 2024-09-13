@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add an SSH Key to GitHub</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Additional styles for instructional content */
+        .main-content {
+            text-align: center; /* Center-align text and content */
+        }
+
+        .markdown-content {
+            max-width: 800px; /* Ensure content does not stretch too wide */
+            margin: 0 auto; /* Center content horizontally */
+            padding: 20px;
+            background-color: #2a2a2a; /* Dark background for readability */
+            border: 1px solid #404040; /* Dark border for contrast */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+            color: #e0e0e0; /* Light text color */
+            text-align: left; /* Align text to the left for better readability */
+        }
+
+        .markdown-content pre {
+            background-color: #333; /* Dark background for code blocks */
+            border-radius: 5px;
+            padding: 10px;
+            overflow-x: auto; /* Handle long lines */
+            color: #e0e0e0; /* Code text color */
+            margin-bottom: 20px;
+            text-align: left; /* Align code text to the left */
+        }
+
+        .markdown-content code {
+            background-color: #333; /* Dark background for inline code */
+            color: #ff6f61; /* Highlight color for inline code */
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        .markdown-content p {
+            margin-bottom: 20px; /* Spacing between paragraphs */
+            line-height: 1.6; /* Line height for readability */
+        }
+
+        .markdown-content ol, .markdown-content ul {
+            margin-left: 20px;
+            text-align: left;
+            margin-bottom: 20px; /* Spacing between list items */
+        }
+
+        .markdown-content li {
+            margin-bottom: 10px;
+        }
+
+        .markdown-content a {
+            color: #ff6f61; /* Link color */
+            text-decoration: none;
+        }
+
+        .markdown-content a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1>Adding an SSH Key to GitHub</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="topnav">
+        <a href="index.html">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-content">
+            <div class="markdown-content">
+                <p style="text-align: center;">This guide was created by combining instructions found on the <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account">GitHub Docs</a> pages for adding SSH keys to an account and adding a new SSH key to the ssh-agent.</p>
+
+                <ol>
+					<br/><br/>
+                    <li>
+                        Paste the text below, replacing the email used in the example with your GitHub email address.
+                        <pre><code>ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</code></pre>
+                        This creates a new SSH key, using the provided email as a label.
+                        <pre><code>&gt; Generating public/private ALGORITHM key pair.</code></pre>
+                        When you're prompted to "Enter a file in which to save the key", you can press Enter to accept the default file location. Please note that if you created SSH keys previously, ssh-keygen may ask you to rewrite another key, in which case we recommend creating a custom-named SSH key. To do so, type the default file location and replace id_ALGORITHM with your custom key name.
+                        <pre><code>&gt; Enter a file in which to save the key (/home/user/.ssh/id_ALGORITHM): [Press enter]</code></pre>
+                    </li>
+					<br/><br/>
+                    <li>
+                        At the prompt, type a secure passphrase.
+                        <pre><code>&gt; Enter passphrase (empty for no passphrase): [Type a passphrase]</code></pre>
+                        <pre><code>&gt; Enter same passphrase again: [Type passphrase again]</code></pre>
+                    </li>
+					<br/><br/>
+                    <li>
+                        To add your SSH key to the ssh-agent, start ssh-agent in the background.
+                        <pre><code>$ eval "$(ssh-agent -s)"</code></pre>
+                        <pre><code>&gt; Agent pid 59566</code></pre>
+                        Depending on your environment, you may need to use a different command. For example, you may need to use root access by running <b>sudo -s -H</b> before starting the ssh-agent, or you may need to use <b>exec ssh-agent bash</b> or <b>exec ssh-agent zsh</b> to run the ssh-agent.
+                    </li>
+					<br/><br/>
+                    <li>
+                        Add your SSH private key to the ssh-agent.
+                        <pre><code>ssh-add ~/.ssh/id_rsa</code></pre>
+                        <pre><code>Enter passphrase for /home/user/.ssh/id_rsa:</code></pre>
+                        <pre><code>Identity added: /home/user/.ssh/id_rsa (&lt;email&gt;)</code></pre>
+                        If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_rsa in the command with the name of your private key file.
+                    </li>
+					<br/><br/>
+                    <li>
+                        Copy the public key information.
+                        <pre><code>$ cat ~/.ssh/id_rsa.pub</code></pre>
+                        <pre><code># Then select and copy the contents of the rsa.pub file</code></pre>
+                        <pre><code># displayed in the terminal to your clipboard</code></pre>
+                    </li>
+					<br/><br/>
+                    <li>
+                        Enter into the GitHub settings SSH and GPG Keys page.
+                    </li>
+					<br/><br/>
+                    <li>
+                        Test your ssh key.
+                        <pre><code>ssh -T git@github.com</code></pre>
+                        You may need to type "yes" to approve a connection. If your ssh key is properly set up, you will see the following message:
+                        <pre><code>Hi &lt;username&gt;! You've successfully authenticated, but GitHub does not provide shell access.</code></pre>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        "Everybody wanna be a bodybuilder; don't nobody wanna lift no heavy ass weight!" -Ronnie Coleman
+    </footer>
+</body>
+</html>
