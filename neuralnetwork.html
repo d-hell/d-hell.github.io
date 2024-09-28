@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Simple Neural Network</title>
+    <link rel="stylesheet" href="css/article.css">
+    <style>
+        /* Additional styles for instructional content */
+        .main-content {
+            text-align: center; /* Center-align text and content */
+        }
+
+        .markdown-content {
+            max-width: 800px; /* Ensure content does not stretch too wide */
+            margin: 0 auto; /* Center content horizontally */
+            padding: 20px;
+            background-color: #2a2a2a; /* Dark background for readability */
+            border: 1px solid #404040; /* Dark border for contrast */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+            color: #e0e0e0; /* Light text color */
+            text-align: left; /* Align text to the left for better readability */
+        }
+
+        .markdown-content pre {
+            background-color: #333; /* Dark background for code blocks */
+            border-radius: 5px;
+            padding: 10px;
+            overflow-x: auto; /* Handle long lines */
+            color: #e0e0e0; /* Code text color */
+            margin-bottom: 20px;
+            text-align: left; /* Align code text to the left */
+        }
+
+        .markdown-content code {
+            background-color: #333; /* Dark background for inline code */
+            color: #ff6f61; /* Highlight color for inline code */
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        .markdown-content p {
+            margin-bottom: 20px; /* Spacing between paragraphs */
+            line-height: 1.6; /* Line height for readability */
+        }
+
+        .markdown-content ol, .markdown-content ul {
+            margin-left: 20px;
+            text-align: left;
+            margin-bottom: 20px; /* Spacing between list items */
+        }
+
+        .markdown-content li {
+            margin-bottom: 10px;
+        }
+
+        .markdown-content a {
+            color: #ff6f61; /* Link color */
+            text-decoration: none;
+        }
+
+        .markdown-content a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1>An Introduction to Neural Networks</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="topnav">
+        <a href="index.html">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-content">
+            <div class="markdown-content">
+                <h2>Introduction:</h2>
+                
+                <p>This is a walkthrough of a simple neural network written in Python. While this doesn't seem like the AI you're used to seeing with the rising popularity of Large Language Models (LLM), the fundamental concepts driving this program are remarkably similar. This is because all AI uses algorithms to process data, recognize patterns, and make decisions based on said patterns. In this article, I will be showing how this neural network finds a pattern that fits its data and trains itself over time to improve its prediction accuracy. For a more granular approach to how LLMs specifically operate, I recommend <a href="https://newsletter.pragmaticengineer.com/p/scaling-chatgpt?ref=blog.pragmaticengineer.com">this article</a> on The Pragmatic Engineer.</p>
+
+                <p>I will provide code snippets throughout this article- you can access the full source code in this <a href="https://github.com/d-hell/turbo-octo-funicular">GitHub repo.</a></p>
+
+                <h2>What a Neural Network Does:</h2>
+
+                <p>This neural network attempts to recognize a pattern in the inputs it is given that maps to the outputs. This data can be found at the start of the module:</p>
+
+                <pre><code>inputs = np.array([[0, 1, 0],
+                   [0, 1, 1],
+                   [0, 0, 0],
+                   [1, 0, 0],
+                   [1, 1, 1],
+                   [1, 0, 1]])</code></pre>
+
+                <pre><code>outputs = np.array([[0], [0], [0], [1], [1], [1]])</code></pre>
+
+                <p>This simply means that for each of the bracketed sets given in the input section, we expect to receive the corresponding output from the next list. A good way to visualize this is to put the output values into an "expected values" column:</p>
+
+                <pre><code>Given Value      Expected Value
+[0, 1, 0]    ->        [0]
+[0, 1, 1]    ->        [0]
+[0, 0, 0]    ->        [0]
+[1, 0, 0]    ->        [1]
+[1, 1, 1]    ->        [1]
+[1, 0, 1]    ->        [1]</code></pre>
+
+                <p>So what is the pattern the neural network is trying to learn? If you haven't figured it out yet, here it is:</p>
+
+                <ul>
+                    <li>If the sum of the three input values is greater than or equal to 2, the output is 1.</li>
+                    <li>If the sum is less than 2, the output is 0.</li>
+                </ul>
+
+                <pre><code> Work in progress</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        "Everybody wanna be a bodybuilder; don't nobody wanna lift no heavy ass weight!" -Ronnie Coleman
+    </footer>
+</body>
+</html>

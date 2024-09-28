@@ -1,0 +1,156 @@
+/* article.css */
+
+/* Basic Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e; /* Dark background color */
+    color: #e0e0e0; /* Light grey text for contrast */
+    text-align: center; /* Center-align text by default */
+}
+
+/* Header Styles */
+.header {
+    background-color: #002b36; /* Darker cobalt blue */
+    color: #ffffff; /* White text */
+    padding: 20px;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+/* Navigation Styles */
+.topnav {
+    background-color: #282828; /* Very dark grey */
+    overflow: hidden;
+    padding: 10px 0;
+}
+
+.topnav a {
+    color: #e0e0e0; /* Light grey text */
+    text-decoration: none;
+    padding: 14px 20px;
+    display: inline-block;
+}
+
+.topnav a:hover {
+    background-color: #002b36; /* Darker cobalt blue */
+    color: #ff6f61; /* Coral highlight */
+}
+
+/* Container Styles */
+.container {
+    max-width: 800px; /* Narrower container for articles */
+    margin: 20px auto; /* Centered container with margin */
+    padding: 0 20px;
+}
+
+/* Main Content Styles */
+.main-content {
+    background-color: #2a2a2a; /* Dark grey background for reading pane */
+    border: 1px solid #404040; /* Slightly lighter grey border */
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 100%; /* Full width of the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Darker shadow for depth */
+    margin: 0 auto; /* Centering the reading pane */
+}
+
+/* Markdown Content Styles */
+.markdown-content {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #2a2a2a; /* Dark card background */
+    border: 1px solid #404040; /* Card border */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Card shadow */
+    color: #e0e0e0; /* Text color */
+    text-align: left; /* Left-align text in markdown content */
+}
+
+/* Markdown Headings */
+.markdown-content h1, .markdown-content h2, .markdown-content h3 {
+    color: #ffffff; /* Heading color */
+    margin-bottom: 10px;
+}
+
+/* Code Blocks */
+.markdown-content pre {
+    background-color: #333; /* Code block background */
+    border-radius: 5px;
+    padding: 10px;
+    overflow-x: auto; /* Handle long lines */
+    color: #e0e0e0; /* Code text color */
+    margin-bottom: 20px;
+}
+
+/* Inline Code */
+.markdown-content code {
+    background-color: #333;
+    color: #ff6f61; /* Inline code color */
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+/* Lists */
+.markdown-content ol, .markdown-content ul {
+    margin-left: 20px;
+    text-align: left;
+}
+
+.markdown-content li {
+    margin-bottom: 10px;
+}
+
+/* Links */
+.markdown-content a {
+    color: #ff6f61; /* Link color */
+    text-decoration: none;
+}
+
+.markdown-content a:hover {
+    text-decoration: underline;
+}
+
+/* Paragraphs */
+.markdown-content p {
+    padding-bottom: 10px; /* Space inside the bottom of the paragraph */
+    margin-bottom: 20px; /* Space outside the bottom of the paragraph */
+    line-height: 1.6; /* Line height for readability */
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #282828; /* Very dark grey */
+    color: #e0e0e0; /* Light grey text */
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 800px) {
+    .container {
+        padding: 0 10px; /* Adjust padding for smaller screens */
+    }
+
+    .main-content {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .topnav a {
+        float: none;
+        width: 100%;
+    }
+}
